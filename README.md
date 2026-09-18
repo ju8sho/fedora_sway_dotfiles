@@ -59,7 +59,7 @@ Asosiy tugma: **`$mod` = Super (Windows) tugmasi**
 | Tugma | Vazifa |
 |---|---|
 | `$mod + Shift + w` | Wallpaper tanlash (rofi) |
-| `$mod + t` | Tema almashtirish (oq/qora) |
+| `$mod + t` | Tema ro'yxati (rofi: gruvbox, onedark, jetbrains...) — tanlang va qo'llang |
 | `XF86AudioRaise/Lower/Mute` | Ovoz balandligi / muheol |
 | `XF86MonBrightnessUp/Down` | Yorug'lik |
 | `Print` (Select) | Sohil (region) screenshot → clipboard |
@@ -75,7 +75,7 @@ Asosiy tugma: **`$mod` = Super (Windows) tugmasi**
 | **Bluetooth** | Rofi qurilmalar menyusi | Bluetooth on/off | — |
 | **Yorug'lik** | — | — | Yuqori/past: ko'tar/tushir |
 | **Ovoz** | Mute (tinglash) | — | — |
-| **Kun/tun (theme)** | Tema almashtirish | — | — |
+| **Tema** | Tema ro'yxati (rofi picker) | — | — |
 | **Gammastep** | Rangi o'zgartirish (on/off) | — | — |
 | **Quvvat** | Wlogout (chiqish menyusi) | — | — |
 
@@ -84,10 +84,12 @@ WiFi/Bluetooth **menyuda** ham on/off tugmasi bor (ro'yxat boshida).
 ## Tema tizimi
 
 - Temalar: `~/.config/sway-themes/themes/`
-  - `jetbrains` — qorong'u (dark)
-  - `jetbrains-light` — yorug' (light)
+  - `jetbrains` — qorong'u (darcula)
+  - `jetbrains-light` — yorug'
+  - `gruvbox` — qorong'u (gruvbox palitra)
+  - `onedark` — qorong'u (one dark palitra)
 - Faol tema: `~/.config/sway-themes/current` simlink
-- `$mod + t` yoki panel'da theme modulini bosish — oq/qora almashtiradi
+- `$mod + t` yoki panel'da theme modulini bosish — barcha temalar ro'yxati (rofi), tanlanğan tema darhol qo'llanadi
 - Har bir tema o'z ranglarini beradi: sway (borders), waybar, kitty/foot, rofi, dunst, swaylock
 
 **Yangi tema qo'shish:**

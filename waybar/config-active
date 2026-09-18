@@ -117,7 +117,7 @@
         "exec": "~/.config/waybar/theme.sh --get",
         "return-type": "json",
         "interval": 10,
-        "on-click": "~/.config/waybar/theme.sh --toggle",
+        "on-click": "~/.config/sway/scripts/theme-picker.sh",
         "tooltip": false
     },
 

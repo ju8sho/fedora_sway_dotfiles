@@ -244,7 +244,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+w exec ~/.config/sway/scripts/wallpaper-pick.sh
 
 # Dark/light theme.
-bindsym $mod+t exec ~/.config/waybar/theme.sh --toggle
+bindsym $mod+t exec ~/.config/sway/scripts/theme-picker.sh
 
 # Volume.
 bindsym XF86AudioRaiseVolume exec ~/.config/sway/scripts/volume.sh up

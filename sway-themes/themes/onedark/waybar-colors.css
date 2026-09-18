@@ -1,0 +1,17 @@
+/* JetBrains / Darcula palitra - waybar uchun */
+@define-color base      #282C34;
+@define-color mantle    #21252B;
+@define-color crust     #161618;
+@define-color surface0  #2C313A;
+@define-color surface1  #3E4451;
+@define-color text      #ABB2BF;
+@define-color subtext0  #5C6370;
+@define-color green     #98C379;
+@define-color palegreen #98C379;
+@define-color midgreen  #56B6C2;
+@define-color aqua      #61AFEF;
+@define-color lime      #E5C07B;
+@define-color orange    #D19A66;
+@define-color yellow    #E5C07B;
+@define-color red       #E06C75;
+@define-color darkgreen #528BFF;
