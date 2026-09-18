@@ -52,3 +52,4 @@ config-backup-*/
 
 # --- Har bir mashinaga xos state ---
 waybar/theme.txt
+sway/current-wallpaper
