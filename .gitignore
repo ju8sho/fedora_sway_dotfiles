@@ -27,6 +27,19 @@ herdr/*.sock
 herdr/session.json
 herdr/release-notes.json
 
+# --- Sway rice'ga tegishli bo'lmagan shaxsiy configlar ---
+helix/
+herdr/
+lxqt/
+nvim/
+opencode/
+xfce4/
+abrt/
+mimeapps.list
+pavucontrol.ini
+user-dirs.dirs
+user-dirs.locale
+
 # --- Backup / arxivlar ---
 *-backup*/
 *.bak
