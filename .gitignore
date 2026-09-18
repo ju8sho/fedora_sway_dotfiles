@@ -1,0 +1,41 @@
+# ============================================================
+# Sway dotfiles - repo ignore rules
+# ~/.config'ni to'g'ridan-to'g'ri boshqaradi (bitta clone -> ishga tushadi)
+# ============================================================
+
+# --- Brauzer profillari / caches / session fayllar ---
+Codex/
+dconf/
+mozilla/
+pulse/
+Thunar/
+xarchiver/
+abrt/
+.gtk-3.0/
+
+# --- Qt platformlar xususiy ---
+qt5ct/
+qt6ct.conf
+
+# --- Editör/coc caches ---
+coc/
+opencode/node_modules/
+
+# --- herdr: faqat logs/sockets/session (config.toml saqlanadi) ---
+herdr/*.log
+herdr/*.sock
+herdr/session.json
+herdr/release-notes.json
+
+# --- Backup / arxivlar ---
+*-backup*/
+*.bak
+*.zip
+sway-backup-*/
+config-backup-*/
+
+# --- Video wallpaper'lar (katta, tema ichida avlod) ---
+themes/*/wallpaper.mp4
+
+# --- Har bir mashinaga xos state ---
+waybar/theme.txt

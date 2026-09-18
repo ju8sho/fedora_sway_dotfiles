@@ -1,0 +1,80 @@
+* {
+    background: #1e1e1ecc;
+    foreground: #ffffff;
+    selected-background: #ffffff22;
+    selected-foreground: #ffffff;
+
+    border-color: #ffffff18;
+    separatorcolor: transparent;
+
+    font: "JetBrains Mono 12";
+}
+
+window {
+    width: 700px;
+    height: 500px;
+
+    border: 1px;
+    border-radius: 24px;
+
+    background-color: @background;
+    border-color: @border-color;
+
+    padding: 30px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 25px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+
+    background-color: #ffffff12;
+    border-radius: 14px;
+
+    padding: 12px 18px;
+}
+
+prompt {
+    enabled: true;
+    str: "🔍";
+    padding: 0 10px 0 0;
+}
+
+entry {
+    placeholder: "Ilovalarni qidirish...";
+    placeholder-color: #ffffff80;
+}
+
+listview {
+    columns: 4;
+    lines: 3;
+
+    spacing: 18px;
+    fixed-height: false;
+    dynamic: true;
+
+    layout: vertical;
+}
+
+element {
+    orientation: vertical;
+    padding: 15px;
+    border-radius: 18px;
+
+    spacing: 8px;
+}
+
+element-icon {
+    size: 64px;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+
+    text-color: @foreground;
+}

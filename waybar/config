@@ -1,0 +1,129 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 8,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": [
+        "backlight",
+        "pulseaudio",
+        "memory",
+        "cpu",
+        "custom/battery",
+        "tray",
+        "network",
+        "custom/bt",
+        "clock",
+        "custom/wlsunset",
+        "custom/theme",
+        "custom/power"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "format": "{name}"
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "sway/window": {
+        "max-length": 60,
+        "tooltip": false
+    },
+
+    "backlight": {
+        "format": "{percent}%",
+        "on-click": "true",
+        "on-scroll-up": "~/.config/sway/scripts/brightness.sh up",
+        "on-scroll-down": "~/.config/sway/scripts/brightness.sh down",
+        "tooltip-format": "Yorug'lik: {percent}%"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "{icon} muted",
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "tooltip-format": "{desc}"
+    },
+
+    "network": {
+        "format-wifi": "\uf1eb",
+        "format-ethernet": "\uf1e0",
+        "format-disconnected": "\uf7a8",
+        "on-click": "~/.config/sway/scripts/wifi-menu.sh",
+        "on-click-right": "~/.config/sway/scripts/wifi-toggle.sh",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ipaddr}\nChap: wifi menyu, O'ng tugma: on/off",
+        "tooltip-format-ethernet": "{ifname} - {ipaddr}",
+        "tooltip-format-disconnected": "WiFi o'chiq\nChap: menyu, O'ng: on/off"
+    },
+
+    "cpu": {
+        "format": "CPU {usage}%",
+        "interval": 5
+    },
+
+    "memory": {
+        "format": "MEM {percentage}%",
+        "interval": 5,
+        "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+    },
+
+    "custom/battery": {
+        "exec": "~/.config/waybar/battery.sh",
+        "return-type": "json",
+        "interval": 5
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A %d %B %Y}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "custom/bt": {
+        "exec": "~/.config/sway/scripts/bt-indicator.sh",
+        "return-type": "json",
+        "interval": 10,
+        "on-click": "~/.config/sway/scripts/bt-menu.sh",
+        "on-click-right": "~/.config/sway/scripts/bt-toggle.sh",
+        "signal": 3,
+        "tooltip": true
+    },
+
+    "custom/wlsunset": {
+        "exec": "~/.config/waybar/wlsunset.sh --get",
+        "return-type": "json",
+        "interval": 10,
+        "on-click": "~/.config/waybar/wlsunset.sh --toggle",
+        "tooltip": true
+    },
+
+    "custom/theme": {
+        "exec": "~/.config/waybar/theme.sh --get",
+        "return-type": "json",
+        "interval": 10,
+        "on-click": "~/.config/waybar/theme.sh --toggle",
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format": "\uf011",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}

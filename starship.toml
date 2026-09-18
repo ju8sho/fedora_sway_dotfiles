@@ -1,0 +1,69 @@
+# Terminal satrining ketma-ketligi (Rust bloki qo'shildi)
+format = """
+$os\
+$directory\
+$git_branch\
+$git_status\
+$rust\
+$package\
+$line_break\
+$character"""
+
+add_newline = false
+
+# 💻 Fedora Logotipi
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "bold blue"
+
+[os.symbols]
+Fedora = " "
+
+# 📂 Aqlli Navigatsiya (Rust loyihasiga kirganda yo'lni qisqartiradi)
+[directory]
+format = "in [$path]($style) "
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = true          # Git/Rust loyiha papkasidan boshlab ko'rsatadi
+repo_root_style = "bold underline cyan"
+
+# 🌿 Git Branch
+[git_branch]
+symbol = " "
+format = "on [$symbol$branch]($style) "
+style = "bold magenta"
+
+# 📊 Git Status (Kodingizdagi o'zgarishlarni soni bilan ko'rsatadi)
+[git_status]
+format = "[($all_status$ahead_behind)]($style) "
+style = "bold red"
+conflicted = "🏳 "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+untracked = "?${count} "
+stashed = "📦 "
+modified = "!${count} "
+staged = "+${count} "
+deleted = "🗑 "
+
+# 🦀 Rust & Cargo uchun Maxsus Blok (Faqat Rust papkasida ko'rinadi)
+[rust]
+symbol = "🦀 "
+format = "via [$symbol$version]($style) "
+style = "bold red"               # Rust logotipi va versiyasi chiroyli qizil rangda chiqadi
+
+# 📦 Cargo paketi versiyasi
+[package]
+disabled = false
+format = "[$symbol$version]($style) "
+style = "bold dimmed text"
+
+# ❯ Buyruq belgisi
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✕](bold red)"
+
+[line_break]
+disabled = false
+

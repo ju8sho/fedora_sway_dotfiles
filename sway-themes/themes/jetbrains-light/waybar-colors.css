@@ -1,0 +1,17 @@
+/* JetBrains / IntelliJ Light palitra - waybar uchun */
+@define-color base      #F7F7F7;
+@define-color mantle    #E8E8E8;
+@define-color crust     #E0E0E0;
+@define-color surface0  #EDEDED;
+@define-color surface1  #D5D5D5;
+@define-color text      #1E1E1F;
+@define-color subtext0  #5A5A5A;
+@define-color green     #4A7D3A;
+@define-color palegreen #6A9A4A;
+@define-color midgreen  #3E7A8A;
+@define-color aqua      #3B6EA5;
+@define-color lime      #AA8A00;
+@define-color orange    #C25C1A;
+@define-color yellow    #9B8E00;
+@define-color red       #C13535;
+@define-color darkgreen #C5C5C5;

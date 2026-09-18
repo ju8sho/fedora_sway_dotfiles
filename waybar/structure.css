@@ -1,0 +1,144 @@
+/* Waybar — zamonaviy, shaffof, bitta umumiy fon.
+   Ranglar colors.css (faol tema) dan keladi.
+   Barcha modullar bitta fon ustida turadi; alohida pill'lar yo'q. */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "FontAwesome", "DejaVu Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: alpha(@base, 0.9);
+    color: @text;
+    border-bottom: 1px solid alpha(@darkgreen, 0.7);
+    box-shadow: 0 2px 12px alpha(@crust, 0.4);
+}
+
+/* Workspace'lar — fonsiz, faol kontrast */
+#workspaces {
+    background: transparent;
+    margin: 0 4px;
+}
+
+#workspaces button {
+    color: @subtext0;
+    padding: 0 10px;
+    margin: 0 2px;
+    transition: all 0.15s ease;
+}
+
+#workspaces button.focused,
+#workspaces button.urgent {
+    background: alpha(@green, 0.9);
+    color: @crust;
+}
+
+#workspaces button:hover {
+    background: alpha(@surface1, 0.9);
+    color: @text;
+}
+
+#mode {
+    background: alpha(@lime, 0.9);
+    color: @crust;
+    padding: 0 10px;
+}
+
+#window {
+    color: @subtext0;
+    font-weight: 400;
+}
+
+/* Modullar — fonsiz (bar o'zi fon); faqat hover'da yengil ta'kid */
+#backlight,
+#pulseaudio,
+#memory,
+#cpu,
+#custom-battery,
+#network,
+#custom-bt,
+#clock,
+#custom-wlsunset,
+#custom-theme,
+#custom-power {
+    background: transparent;
+    margin: 0;
+    padding: 0 12px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+#pulseaudio { color: @midgreen; }
+#pulseaudio.muted { color: @subtext0; }
+
+#backlight { color: @lime; }
+
+#network { color: @aqua; }
+#network.disconnected { color: @lime; }
+
+#memory { color: @green; }
+#cpu { color: @palegreen; }
+
+#custom-battery { color: @green; }
+#custom-battery.plugged { color: @aqua; }
+#custom-battery.warning { color: @yellow; }
+
+#custom-bt { color: @palegreen; }
+#custom-bt.off { color: @subtext0; }
+
+#custom-wlsunset { color: @subtext0; }
+#custom-wlsunset.on { color: @orange; }
+
+#custom-theme { color: @subtext0; }
+#custom-theme.light { color: @yellow; }
+
+#custom-power { color: @red; }
+#custom-power:hover { color: @lime; }
+
+/* Hover'da barcha modullar bir xil ochiladi */
+#backlight:hover,
+#pulseaudio:hover,
+#memory:hover,
+#cpu:hover,
+#custom-battery:hover,
+#network:hover,
+#custom-bt:hover,
+#custom-wlsunset:hover,
+#custom-theme:hover,
+#custom-power:hover {
+    background: alpha(@surface1, 0.5);
+}
+
+#custom-battery.critical {
+    background: alpha(@red, 0.9);
+    color: @crust;
+    animation: blink 1s linear infinite alternate;
+}
+
+@keyframes blink {
+    to { background: transparent; color: @red; }
+}
+
+/* Soat — bar bilan bitta, faqat rang bilan ajraladi */
+#clock {
+    color: @crust;
+    background: alpha(@green, 0.9);
+}
+
+/* Tray — fonsiz */
+#tray {
+    background: transparent;
+    color: @text;
+    padding: 0 8px;
+}
+
+tooltip {
+    background: alpha(@mantle, 0.95);
+    border: 1px solid @surface1;
+    border-radius: 0;
+}
+
+tooltip label { color: @text; }

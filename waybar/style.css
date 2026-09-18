@@ -1,0 +1,8 @@
+/* Waybar is styled in three layers, last wins:
+   structure.css - layout, fonts, default shapes (rounded pills)
+   colors.css    - the active theme's palette (symlink into the theme)
+   shape.css     - the active theme's shape overrides, refreshed by
+                   sway-theme (e.g. border-radius: 0 for a squared look) */
+@import "structure.css";
+@import "colors.css";
+@import "shape.css";
