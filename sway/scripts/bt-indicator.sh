@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Bluetooth waybar indicator: holatga qarab \uf293 (on) yoki \uf5a5 (off).
+# Bluetooth waybar indicator: holatga qarab \uf293 (on) yoki \uf00b2 (off).
 if ! bluetoothctl show 2>/dev/null | grep -q "Powered: yes"; then
-    echo '{"text":"\uf5a5","class":"off","tooltip":"Bluetooth o\\u2019chiq\\nChap: menyu, O\\u2019ng: yoqish"}'
+    echo '{"text":"\uf00b2","class":"off","tooltip":"Bluetooth o\\u2019chiq\\nChap: menyu, O\\u2019ng: yoqish"}'
 else
     n=$(bluetoothctl devices Connected 2>/dev/null | wc -l)
     if [ "$n" -gt 0 ]; then

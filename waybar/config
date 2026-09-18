@@ -59,7 +59,7 @@
     "network": {
         "format-wifi": "\uf1eb",
         "format-ethernet": "\uf1e0",
-        "format-disconnected": "\uf7a8",
+        "format-disconnected": "\uf05aa",
         "on-click": "~/.config/sway/scripts/wifi-menu.sh",
         "on-click-right": "~/.config/sway/scripts/wifi-toggle.sh",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ipaddr}\nChap: wifi menyu, O'ng tugma: on/off",
