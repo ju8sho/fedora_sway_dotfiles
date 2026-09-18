@@ -71,6 +71,10 @@ input type:touchpad {
 # (5s da battery.sh orqali) uni tuzatadi.
 exec_always sh -c 'sleep 2; ~/.config/sway/scripts/wallpaper-power.sh'
 
+# Bildirishnomalar: dunst (mako emas). Theme reload paytida pkill -x dunst
+# uni o'ldiradi, bu qator uni qayta ochadi.
+exec_always sh -c 'pkill -x mako 2>/dev/null; pkill -x dunst 2>/dev/null; sleep 0.5; dunst &'
+
 # Ko'z himoyasi.
 exec_always sh -c 'pkill -x wlsunset 2>/dev/null; sleep 0.3; wlsunset -l 41.31 -L 69.24 -t 4000 -T 6500 &'
 

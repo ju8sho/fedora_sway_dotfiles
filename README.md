@@ -84,10 +84,12 @@ WiFi/Bluetooth **menyuda** ham on/off tugmasi bor (ro'yxat boshida).
 ## Tema tizimi
 
 - Temalar: `~/.config/sway-themes/themes/`
-  - `jetbrains` — qorong'u (darcula)
-  - `jetbrains-light` — yorug'
+  - `jetbrains` / `jetbrains-light` — darcula / oq
   - `gruvbox` — qorong'u (gruvbox palitra)
   - `onedark` — qorong'u (one dark palitra)
+  - `matrix` / `matrix-light` — matritsa yashili / oq
+  - `purple` / `purple-light` — binafsha / oq
+- Har bir tema juft (qora + oq): **dark** nomi bilan, **light** `-light` bilan
 - Faol tema: `~/.config/sway-themes/current` simlink
 - `$mod + t` yoki panel'da theme modulini bosish — barcha temalar ro'yxati (rofi), tanlanğan tema darhol qo'llanadi
 - Har bir tema o'z ranglarini beradi: sway (borders), waybar, kitty/foot, rofi, dunst, swaylock

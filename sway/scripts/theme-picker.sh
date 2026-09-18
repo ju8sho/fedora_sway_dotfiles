@@ -7,8 +7,10 @@ THEME_BIN="$HOME/.local/bin/sway-theme"
 # Active temani aniqlash
 active=$(basename "$(readlink "$HOME/.config/sway-themes/current" 2>/dev/null)" 2>/dev/null || true)
 
-# Ro'yxatni tayyorlash: "*" faol tema belgisi
-list="$("$THEME_BIN" 2>/dev/null | sed '1d' | sed 's/^  //')"
+# Ro'yxatni tayyorlash: "*" faol tema belgisi, "example" (shablon) va dublikatlarni
+# (user+repo xuddi shu nom) chiqarib tashlash.
+list="$("$THEME_BIN" 2>/dev/null | sed '1d' | sed 's/^  //' | grep -v '^[ ]*example[[:space:]]\|^example[[:space:]]')"
+list="$(printf '%s\n' "$list" | sed 's/^[ *]*//' | awk '{name=$1; if (!seen[name]++) print}')"
 
 [ -z "$list" ] && { notify-send -t 2500 "Theme" "Tema topilmadi"; exit 1; }
 
