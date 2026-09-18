@@ -35,7 +35,7 @@ sway-backup-*/
 config-backup-*/
 
 # --- Video wallpaper'lar (katta, tema ichida avlod) ---
-themes/*/wallpaper.mp4
+**/wallpaper.mp4
 
 # --- Har bir mashinaga xos state ---
 waybar/theme.txt
