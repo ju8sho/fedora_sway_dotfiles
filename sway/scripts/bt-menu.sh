@@ -4,11 +4,20 @@
 
 notify() { notify-send -t 2500 "Bluetooth" "$1"; }
 
-# Adapter yoqilganmi
+# On/off tugmasi (rofi boshida) — holatga qarab
 if ! bluetoothctl show 2>/dev/null | grep -q "Powered: yes"; then
-    notify "Bluetooth o'chiq — yoqish uchun bluetooth belgisini o'ng tugma bosing"
+    toggle_item="Bluetooth yoqish — hozir o'chiq"
+    choice="$(printf '%s\n' "$toggle_item" | rofi -dmenu -i -p "Bluetooth" -theme-str 'window {width: 420px;} listview {lines: 10;}')"
+    [ -z "$choice" ] && exit 0
+    if [ "$choice" = "$toggle_item" ]; then
+        bluetoothctl power on >/dev/null 2>&1
+        notify "Bluetooth yoqildi"
+        pkill -RTMIN+3 waybar 2>/dev/null
+        exec "$0"
+    fi
     exit 0
 fi
+toggle_item="Bluetooth o'chirish — hozir yoqilgan"
 
 # Reset agent + qurilmalarni olish (oscilloskopga 2 soniya scan, bloklanishsiz)
 (timeout 2 bluetoothctl scan on >/dev/null 2>&1) </dev/null &
@@ -26,12 +35,24 @@ if [ -z "$list" ]; then
 fi
 
 if [ -z "$list" ]; then
-    notify "Bluetooth qurilmasi topilmadi"
+    list="— qurilmalar topilmadi —"
+fi
+
+menu="$(printf '%s\n' "$toggle_item" "" "$list")"
+choice="$(printf '%s\n' "$menu" | rofi -dmenu -i -p "Bluetooth" -theme-str 'window {width: 420px;} listview {lines: 10;}')"
+[ -z "$choice" ] && exit 0
+
+if [ "$choice" = "$toggle_item" ]; then
+    bluetoothctl power off >/dev/null 2>&1
+    notify "Bluetooth o'chirildi"
+    pkill -RTMIN+3 waybar 2>/dev/null
     exit 0
 fi
 
-choice="$(printf '%s\n' "$list" | rofi -dmenu -i -p "Bluetooth" -theme-str 'window {width: 420px;} listview {lines: 10;}')"
-[ -z "$choice" ] && exit 0
+if [ "$choice" = "— qurilmalar topilmadi —" ]; then
+    notify "Bluetooth qurilmasi topilmadi"
+    exit 0
+fi
 
 # Tanlangan qurilmaning MAC manzilini topamiz
 mac="$(bluetoothctl devices 2>/dev/null | grep "$choice" | head -1 | awk '{print $2}')"
