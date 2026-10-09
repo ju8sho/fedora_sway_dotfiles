@@ -28,6 +28,9 @@ toggle_theme() {
   else
     apply_mode "light"
   fi
+  # Niri da swaymsg reload ishlamaydi, waybar ranglarini qo'lda yangilaymiz.
+  # (Sway da ham zararsiz — CSS ni qayta o'qiydi.)
+  pkill -SIGUSR2 waybar 2>/dev/null || true
 }
 
 case "$1" in

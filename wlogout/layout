@@ -1,8 +1,26 @@
 {
     "label" : "lock",
-    "action" : "~/.local/bin/swaylock -f",
+    "action" : "swaylock -C /home/jusho/.config/swaylock/config -f",
     "text" : "Lock",
     "keybind" : "l"
+}
+{
+    "label" : "eyecare",
+    "action" : "~/.config/waybar/wlsunset.sh --toggle",
+    "text" : "Eye Care",
+    "keybind" : "p"
+}
+{
+    "label" : "wifi",
+    "action" : "~/.config/sway/scripts/wifi-toggle.sh",
+    "text" : "WiFi on/off",
+    "keybind" : "w"
+}
+{
+    "label" : "bluetooth",
+    "action" : "~/.config/sway/scripts/bt-toggle.sh",
+    "text" : "Bluetooth on/off",
+    "keybind" : "b"
 }
 {
     "label" : "suspend",
@@ -18,7 +36,7 @@
 }
 {
     "label" : "logout",
-    "action" : "swaymsg exit",
+    "action" : "niri msg action quit 2>/dev/null || loginctl terminate-session \"$XDG_SESSION_ID\"",
     "text" : "Logout",
     "keybind" : "e"
 }

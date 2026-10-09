@@ -8,7 +8,7 @@ window {
 }
 
 button {
-    border-radius: 16px;
+    border-radius: 12px;
     border-color: #3C3F41;
     color: #A9B7C6;
     background-color: #2B2B2B;
@@ -16,14 +16,14 @@ button {
     border-width: 2px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 35%;
+    background-size: 30%;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 600;
-    min-width: 140px;
-    min-height: 140px;
-    margin: 10px;
-    padding-top: 90px;
+    min-width: 100px;
+    min-height: 100px;
+    margin: 6px;
+    padding-top: 60px;
     transition: all 0.2s ease;
 }
 

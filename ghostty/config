@@ -1,0 +1,31 @@
+# Asosiy shell
+command = /usr/bin/zsh
+
+# Tema - eski kitty dagi bilan bir xil Adwaita Dark (Ghostty ichki temasi)
+theme = Adwaita Dark
+
+# Shrift
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 12
+
+# Oyna ko'rinishi - Niri plitkalarida chiroyli chiqishi uchun
+background-opacity = 0.95
+window-padding-x = 12
+window-padding-y = 12
+window-padding-balance = true
+gtk-titlebar = false
+confirm-close-surface = false
+
+# Kursor - ko'zga tashlanadigan blok
+cursor-style = block
+cursor-style-blink = true
+
+# Qulaylik: belgilanganda avtomatik nusxalash, yozayotganda sichqon yashirinadi
+copy-on-select = true
+mouse-hide-while-typing = true
+
+# Ko'p skrollback - chiqindini yuqoriga aylantirib ko'rish uchun
+scrollback-limit = 100000
+
+# Shell integratsiya - zsh bilan sarlavha va holat to'g'ri ishlashi uchun
+shell-integration-features = true

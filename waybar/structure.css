@@ -14,7 +14,8 @@
 window#waybar {
     background: alpha(@base, 0.9);
     color: @text;
-    border-bottom: 1px solid alpha(@darkgreen, 0.7);
+    border: 1px solid alpha(@surface1, 0.6);
+    border-radius: 6px;
     box-shadow: 0 2px 12px alpha(@crust, 0.4);
 }
 
@@ -27,17 +28,69 @@ window#waybar {
 #workspaces button {
     color: @subtext0;
     padding: 0 10px;
-    margin: 0 2px;
+    margin: 2px;
+    border-radius: 8px;
     transition: all 0.15s ease;
 }
 
 #workspaces button.focused,
-#workspaces button.urgent {
-    background: alpha(@green, 0.9);
+#workspaces button.urgent,
+#workspaces button.active {
+    background: alpha(@aqua, 0.9);
     color: @crust;
 }
 
 #workspaces button:hover {
+    background: alpha(@surface1, 0.9);
+    color: @text;
+}
+
+/* Bo'sh workspace lar yashirin — Niri doim oxirida bitta bo'sh saqlaydi */
+#workspaces button.empty {
+    opacity: 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+/* Lekin bo'sh workspace da turganda o'zimiz qayerdaligimiz ko'rinsin */
+#workspaces button.empty.focused {
+    opacity: 1;
+    padding: 0 10px;
+    margin: 2px;
+}
+
+/* Mango taglari (dwl/tags) — 9 ta doim ko'rinadi, dwm uslubi */
+#tags {
+    background: transparent;
+    margin: 0 4px;
+}
+
+#tags button {
+    color: @subtext0;
+    padding: 0 10px;
+    margin: 2px;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+#tags button.occupied {
+    color: @text;
+}
+
+#tags button.focused {
+    background: alpha(@aqua, 0.9);
+    color: @crust;
+}
+
+#tags button.urgent {
+    background: alpha(@red, 0.9);
+    color: @crust;
+}
+
+#tags button:hover {
     background: alpha(@surface1, 0.9);
     color: @text;
 }
@@ -82,6 +135,59 @@ window#waybar {
 #memory { color: @green; }
 #cpu { color: @palegreen; }
 
+/* O'ng guruh-pill: statistika bitta qobiqda */
+#memory,
+#cpu,
+#temperature,
+#custom-battery,
+#custom-tlp {
+    background: alpha(@surface0, 0.95);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#memory {
+    margin-left: 4px;
+    padding-left: 12px;
+    border-radius: 8px 0 0 8px;
+}
+
+#cpu,
+#temperature,
+#custom-battery {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 0;
+}
+
+#custom-tlp {
+    margin-right: 4px;
+    padding-right: 12px;
+    border-radius: 0 8px 8px 0;
+}
+
+#custom-tlp.bat { color: @green; }
+#custom-tlp.ac { color: @aqua; }
+#custom-tlp.unknown { color: @subtext0; }
+
+/* Tray alohida pill — power oldida */
+#tray {
+    background: alpha(@surface0, 0.95);
+    border-radius: 8px;
+    margin: 4px;
+    padding: 0 10px;
+}
+
+/* Power alohida pill */
+#custom-power {
+    background: alpha(@surface0, 0.95);
+    border-radius: 8px;
+    margin: 4px 4px 4px 0;
+    padding: 0 12px;
+}
+
 #custom-battery { color: @green; }
 #custom-battery.plugged { color: @aqua; }
 #custom-battery.warning { color: @yellow; }
@@ -97,6 +203,48 @@ window#waybar {
 
 #custom-power { color: @red; }
 #custom-power:hover { color: @lime; }
+
+/* Bildirishnomalar — power yonidagi pill */
+#custom-notifications {
+    background: alpha(@surface0, 0.95);
+    border-radius: 8px;
+    margin: 4px 0 4px 4px;
+    padding: 0 12px;
+    color: @subtext0;
+}
+
+#custom-notifications.unread { color: @yellow; }
+#custom-notifications:hover { background: alpha(@surface1, 0.9); }
+
+/* Harorat */
+#temperature { color: @orange; }
+#temperature.warning { color: @yellow; }
+#temperature.critical {
+    background: alpha(@red, 0.9);
+    color: @crust;
+}
+
+/* Taskbar — ochiq dasturlar (bosish = fokus) */
+#taskbar {
+    background: transparent;
+    margin: 0 4px;
+}
+
+#taskbar button {
+    color: @subtext0;
+    padding: 0 8px;
+    margin: 2px;
+    border-radius: 8px;
+}
+
+#taskbar button.active {
+    background: alpha(@surface1, 0.9);
+    color: @text;
+}
+
+#taskbar button:hover {
+    background: alpha(@surface1, 0.5);
+}
 
 /* Hover'da barcha modullar bir xil ochiladi */
 #backlight:hover,
@@ -122,18 +270,16 @@ window#waybar {
     to { background: transparent; color: @red; }
 }
 
-/* Soat — bar bilan bitta, faqat rang bilan ajraladi */
+/* Soat — Niri moviy urg'u */
 #clock {
     color: @crust;
-    background: alpha(@green, 0.9);
+    background: alpha(@aqua, 0.9);
+    border-radius: 8px;
+    padding: 0 12px;
+    margin: 2px 4px;
 }
 
-/* Tray — fonsiz */
-#tray {
-    background: transparent;
-    color: @text;
-    padding: 0 8px;
-}
+/* Tray — pill (yuqoridagi guruh qoidasi amal qiladi, bu eski qoida o'chirilgan) */
 
 tooltip {
     background: alpha(@mantle, 0.95);

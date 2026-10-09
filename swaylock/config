@@ -1,1 +1,40 @@
-../sway-themes/current/swaylock.config
+# Niri uchun oddiy lock ekrani: fon rasmi + kichik indikator.
+# (sway-themes ga bog'liq emas — theme toggle buni o'chirmaydi.)
+image=/home/jusho/.config/sway-themes/wallpapers/custom.png
+scaling=fill
+fade-in=0.25
+
+# Soat indikator ichida
+clock
+timestr=%H:%M
+datestr=%a %e %b
+font=JetBrainsMono Nerd Font
+
+# Oddiy kichik indikator — yozishdan oldin ham ko'rinadi
+indicator
+indicator-idle-visible
+indicator-radius=80
+indicator-thickness=6
+ignore-empty-password
+show-keyboard-layout
+
+# Ranglar (RRGGBBAA) - JetBrains Darcula
+ring-color=6897bbff
+inside-color=1e1f22cc
+text-color=a9b7c6ff
+key-hl-color=cc7832ff
+bs-hl-color=ff6b68ff
+ring-ver-color=6a8759ff
+inside-ver-color=1e1f22cc
+text-ver-color=6a8759ff
+ring-clear-color=e8bf6aff
+inside-clear-color=1e1f22cc
+text-clear-color=e8bf6aff
+caps-lock-key-hl-color=cc7832ff
+caps-lock-bs-hl-color=ff6b68ff
+ring-wrong-color=ff6b68ff
+inside-wrong-color=1e1f22cc
+text-wrong-color=ff6b68ff
+line-uses-ring
+separator-color=00000000
+layout-text-color=a9b7c6ff

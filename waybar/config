@@ -1,81 +1,34 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 36,
-    "spacing": 8,
-    "margin-top": 0,
-    "margin-left": 0,
-    "margin-right": 0,
+    "height": 30,
+    "spacing": 6,
+    "margin-top": 2,
+    "margin-left": 6,
+    "margin-right": 6,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["niri/workspaces", "wlr/taskbar"],
+    "modules-center": ["clock"],
     "modules-right": [
-        "backlight",
-        "pulseaudio",
         "memory",
         "cpu",
+        "temperature",
         "custom/battery",
+        "custom/tlp",
         "tray",
-        "network",
-        "custom/bt",
-        "clock",
-        "custom/wlsunset",
-        "custom/theme",
+        "custom/notifications",
         "custom/power"
     ],
 
-    "sway/workspaces": {
-        "disable-scroll": false,
-        "format": "{name}"
+    "niri/workspaces": {
+        "format": "{index}"
     },
 
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-
-    "sway/window": {
-        "max-length": 60,
-        "tooltip": false
-    },
-
-    "backlight": {
-        "format": "{percent}%",
-        "on-click": "true",
-        "on-scroll-up": "~/.config/sway/scripts/brightness.sh up",
-        "on-scroll-down": "~/.config/sway/scripts/brightness.sh down",
-        "tooltip-format": "Yorug'lik: {percent}%"
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "{icon} muted",
-        "format-icons": {
-            "default": ["\uf026", "\uf027", "\uf028"]
-        },
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "tooltip-format": "{desc}"
-    },
-
-    "network": {
-        "format-wifi": "\uf1eb",
-        "format-ethernet": "\uf1e0",
-        "format-disconnected": "\uf05aa",
-        "on-click": "~/.config/sway/scripts/wifi-menu.sh",
-        "on-click-right": "~/.config/sway/scripts/wifi-toggle.sh",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) - {ipaddr}\nChap: wifi menyu, O'ng tugma: on/off",
-        "tooltip-format-ethernet": "{ifname} - {ipaddr}",
-        "tooltip-format-disconnected": "WiFi o'chiq\nChap: menyu, O'ng: on/off"
-    },
-
-    "cpu": {
-        "format": "CPU {usage}%",
-        "interval": 5
-    },
-
-    "memory": {
-        "format": "MEM {percentage}%",
-        "interval": 5,
-        "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "on-click": "activate",
+        "tooltip-format": "{title} | {app_id}"
     },
 
     "custom/battery": {
@@ -84,9 +37,37 @@
         "interval": 5
     },
 
+    "custom/tlp": {
+        "exec": "~/.config/waybar/tlp.sh --get",
+        "return-type": "json",
+        "interval": 10,
+        "on-click": "~/.config/waybar/tlp.sh --info",
+        "tooltip": true
+    },
+
+    "cpu": {
+        "format": "CPU {usage}%",
+        "interval": 5
+    },
+
+    "temperature": {
+        "thermal-zone": 4,
+        "warning-threshold": 80,
+        "critical-threshold": 95,
+        "format": "{temperatureC}°C",
+        "interval": 10
+    },
+
+    "memory": {
+        "format": "MEM {percentage}%",
+        "interval": 5,
+        "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+    },
+
     "tray": {
         "icon-size": 16,
-        "spacing": 8
+        "spacing": 8,
+        "reverse-direction": false
     },
 
     "clock": {
@@ -95,35 +76,17 @@
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
     },
 
-    "custom/bt": {
-        "exec": "~/.config/sway/scripts/bt-indicator.sh",
-        "return-type": "json",
-        "interval": 10,
-        "on-click": "~/.config/sway/scripts/bt-menu.sh",
-        "on-click-right": "~/.config/sway/scripts/bt-toggle.sh",
-        "signal": 3,
-        "tooltip": true
-    },
-
-    "custom/wlsunset": {
-        "exec": "~/.config/waybar/wlsunset.sh --get",
-        "return-type": "json",
-        "interval": 10,
-        "on-click": "~/.config/waybar/wlsunset.sh --toggle",
-        "tooltip": true
-    },
-
-    "custom/theme": {
-        "exec": "~/.config/waybar/theme.sh --get",
-        "return-type": "json",
-        "interval": 10,
-        "on-click": "~/.config/sway/scripts/theme-picker.sh",
-        "tooltip": false
-    },
-
     "custom/power": {
-        "format": "\uf011",
-        "on-click": "wlogout",
+        "format": "",
+        "on-click": "~/.config/waybar/power-menu.sh",
         "tooltip": false
+    },
+
+    "custom/notifications": {
+        "exec": "~/.config/waybar/notifications.sh --get",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "~/.config/waybar/notifications.sh --show",
+        "tooltip": true
     }
 }

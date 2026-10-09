@@ -4,8 +4,11 @@ $os\
 $directory\
 $git_branch\
 $git_status\
+$git_state\
 $rust\
 $package\
+$cmd_duration\
+$jobs\
 $line_break\
 $character"""
 
@@ -22,7 +25,7 @@ Fedora = " "
 
 # 📂 Aqlli Navigatsiya (Rust loyihasiga kirganda yo'lni qisqartiradi)
 [directory]
-format = "in [$path]($style) "
+format = "[$path]($style) "
 style = "bold cyan"
 truncation_length = 3
 truncate_to_repo = true          # Git/Rust loyiha papkasidan boshlab ko'rsatadi
@@ -63,6 +66,19 @@ style = "bold dimmed text"
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[✕](bold red)"
+
+# ⏱ Uzun buyruq davomiyligi - "took" so'zisiz, faqat vaqtning o'zi: 9s
+# 2 soniyadan qisqalari ko'rsatilmaydi - shovqin bo'lmasligi uchun.
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style) "
+style = "bold yellow"
+
+# ✦ Background dagi ishlar soni (agar bo'lsa ko'rinadi, bo'lmasa yashirin)
+[jobs]
+symbol = "✦ "
+format = "[$symbol$number]($style) "
+style = "bold blue"
 
 [line_break]
 disabled = false

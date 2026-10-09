@@ -7,8 +7,8 @@
     "margin-left": 6,
     "margin-right": 6,
 
-    "modules-left": ["niri/workspaces"],
-    "modules-center": ["niri/window"],
+    "modules-left": ["dwl/tags"],
+    "modules-center": ["dwl/window"],
     "modules-right": [
         "tray",
         "memory",
@@ -18,11 +18,11 @@
         "custom/power"
     ],
 
-    "niri/workspaces": {
-        "format": "{index}"
+    "dwl/tags": {
+        "num-tags": 9
     },
 
-    "niri/window": {
+    "dwl/window": {
         "max-length": 50,
         "tooltip": false
     },
